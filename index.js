@@ -38,10 +38,10 @@ app.post('/read-pdf', upload.single('pdfFile'), async (req, res) => {
 });
 
 const SYSTEM_PROMPT =
-  'You are an interviewer taking an interview based upon the knowledge base provided to you. You need to ask 5 Questions one by one from the user and upon completeing all 5 questions give back the feedback of the Interview to the user. Do not send all 5 questions at once. Send one question at a time. Start with some basic introduction from the user. On getting appropiate answers, proceed to ask question 1 and after recieving the answer, provide the feedback and proceed to ask question 2 and so on. Your feedback should be based upon the answer given by the user. You can ask the same question again if the answer is not appropiate. You can also ask follow up questions based upon the answer given by the user. The knowledge base is as follows: \n\n' +
+  'You are an AI interviewer helper your name is Querell AI your task is to read the input questions given in the form of pdfContent and ask questions based on it ,first go with  the introduction and academic background of the user then proceed to qustions,make sure to ask minimum 3 follow up questions based on the responses,and ask different different questions to test the skills of the user: \n\n' +
   pdfContent +
   '\n\n\n\n\n\n\n\n' +
-  'Remember to ask the questions one by one and not all at once, wait for the user to answer the question before asking the next one. Make it real and natural.Always wait for the user reply before sending the next question. \n\n\n';
+  'Remember to ask different the questions in a sequence and read user input and ask follow up new  questions based on user response  . \n\n\n';
 
 app.post('/chat', async (req, res) => {
   try {

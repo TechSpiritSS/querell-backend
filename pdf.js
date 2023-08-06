@@ -1,4 +1,7 @@
 const pdfjs = require('pdfjs-dist/build/pdf');
+const pdfjsWorker = require('pdfjs-dist/build/pdf.worker.entry');
+
+pdfjs.GlobalWorkerOptions.workerSrc = pdfjsWorker;
 
 async function getContent(fileBuffer) {
   try {
